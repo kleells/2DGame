@@ -12,7 +12,7 @@ None. Viewer only needs to utilize Live Server through the index.html file.
 
 
 ## How I veered from the original project
-- 
+- used a local file of an image, in assets/images instead of an external link
 
 ## History
 After completing a Software Engineering certification program and during my job search, I needed to continue to pracitce my skill set in order to maintain it and learn more. I thought that even the most basic projects using the most basic languages was a great place to start.
