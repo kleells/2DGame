@@ -25,6 +25,14 @@ document.onkeyup = function(e) {
     keyState = 'keyup';
 };
 
+var obstacle = {
+    x: 300,
+    y: 0,
+    width: 50,
+    height: 200
+
+}
+
 setInterval(function() {
     if (keyState === 'keyup'){
         return;
@@ -48,4 +56,8 @@ setInterval(function() {
 
     ctx.clearRect(0, 0, 2000, 2000);
     ctx.drawImage(player, x, y);
+    obstacle.x -= 1;
+    ctx.fillStyle = '#717C48';
+    ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+
 }, 5);
