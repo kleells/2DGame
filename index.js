@@ -25,13 +25,33 @@ document.onkeyup = function(e) {
     keyState = 'keyup';
 };
 
-var obstacle = {
+// for multiple obstacles
+var obstacles = [
+    {
     x: 300,
     y: 0,
     width: 50,
     height: 200
-
-}
+    },
+    {
+    x: 400,
+    y: 0,
+    width: 50,
+    height: 300
+    },
+    {
+    x: 500,
+    y: 0,
+    width: 50,
+    height: 200
+    },
+    {
+    x: 350,
+    y: 0,
+    width: 50,
+    height: 200
+    }
+]
 
 setInterval(function() {
     if (keyState === 'keyup'){
@@ -56,8 +76,14 @@ setInterval(function() {
 
     ctx.clearRect(0, 0, 2000, 2000);
     ctx.drawImage(player, x, y);
-    obstacle.x -= 1;
-    ctx.fillStyle = '#717C48';
-    ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+
+    ctx.fillStyle = '#006B6A';
+
+    for (var i=0; i < obstacles.length; i++) {
+        const obstacle = obstacles[i];
+
+        obstacle.x -= 1;
+        ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+    }
 
 }, 5);
