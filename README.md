@@ -5,6 +5,13 @@ A coding tutorial created to review and practice basic JavaScript by creating a 
 ## Tech Used
 - 
 
+## How to play
+Use the w, a, s and d keys to move the character on the screen. To stop the character from moving, simply let up on the key being pressed.
+- w moves character up
+- s moves character down
+- a moves character left
+- d moves character right
+
 ## Dependencies
 None. Viewer only needs to utilize Live Server through the index.html file.
 
