@@ -57,6 +57,27 @@ var obstacles = [
     }
 ]
 
+function handleCollisiton(obstacle) {
+    const playerLeft = x;
+    const playerRight = x + 50;
+    const playerBottom = y;
+    const playerTop = y + 100;
+
+    const obstableLeft = obstacle.x;
+    const obstacleRight = obstacle.x + obstacle.width;
+    const obstacleTop = obstacle.y;
+    const obstacleBottom = obstacle.y + obstacle.height;
+
+    if (playerBottom < obstacleTop ||
+        playerTop > obstacleBottom ||
+        playerRight < obstableLeft ||
+        playerLeft > obstacleRight
+    ) {
+        return false;
+    };
+    return true;
+};
+
 setInterval(function() {
     
     // w key moves character up
@@ -76,7 +97,15 @@ setInterval(function() {
     for (var i=0; i < obstacles.length; i++) {
         const obstacle = obstacles[i];
         obstacle.x -= 1;
+
+        if (obstacle.x < -100) {
+            obstacle.x = 1000;
+        }
         ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+
+        if  (handleCollisiton(obstacle)) {
+            location.reload();
+        }
     }
 
 }, 5);
