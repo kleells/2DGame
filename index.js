@@ -25,38 +25,40 @@ document.onkeyup = function(e) {
     keyState = 'keyup';
 };
 
+function chooseRandom(min, max) {
+    return Math.random() * (max - min) + min;
+};
+
 // for multiple obstacles
 var obstacles = [
     {
-    x: 300,
-    y: 0,
+    x: chooseRandom(500, 1500),
+    y: chooseRandom(0, 500),
     width: 50,
     height: 200
     },
     {
-    x: 400,
-    y: 0,
+    x: chooseRandom(500, 1500),
+    y: chooseRandom(0, 300),
     width: 50,
     height: 300
     },
     {
-    x: 500,
-    y: 0,
+    x: chooseRandom(500, 1500),
+    y: chooseRandom(0, 300),
     width: 50,
     height: 200
     },
     {
-    x: 350,
-    y: 0,
+    x: chooseRandom(500, 1500),
+    y: chooseRandom(0, 300),
     width: 50,
     height: 200
     }
 ]
 
 setInterval(function() {
-    if (keyState === 'keyup'){
-        return;
-    }
+    
     // w key moves character up
     if (key === 'w') {
         y -= 1;
@@ -64,14 +66,6 @@ setInterval(function() {
     // s key moves characer down
     if (key === 's') {
         y += 1;
-    }
-    // a key moves character left
-    if (key === 'a') {
-        x -= 1;
-    }
-    // d key moves character right
-    if (key === 'd') {
-        x += 1;
     };
 
     ctx.clearRect(0, 0, 2000, 2000);
@@ -81,7 +75,6 @@ setInterval(function() {
 
     for (var i=0; i < obstacles.length; i++) {
         const obstacle = obstacles[i];
-
         obstacle.x -= 1;
         ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
     }
